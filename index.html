@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Flores Artesanales</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #fff9f8;
+            color: #4b3439;
+        }
+
+        /* MENÚ */
+
+        header {
+            background: white;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #f0dddd;
+        }
+
+        .logo {
+            font-family: Georgia, serif;
+            font-size: 25px;
+            color: #9b5365;
+            font-weight: bold;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #68474e;
+            margin-left: 25px;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #b85e78;
+        }
+
+        /* PORTADA */
+
+        .inicio {
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 20px;
+
+            background: linear-gradient(
+                135deg,
+                #fff3f4,
+                #fce9e6,
+                #fff9f5
+            );
+        }
+
+        .inicio-contenido {
+            max-width: 700px;
+        }
+
+        .inicio h1 {
+            font-family: Georgia, serif;
+            font-size: 55px;
+            color: #793f50;
+            margin-bottom: 20px;
+        }
+
+        .inicio h1 span {
+            color: #c66b83;
+        }
+
+        .inicio p {
+            font-size: 17px;
+            line-height: 1.7;
+            color: #765d62;
+            margin-bottom: 30px;
+        }
+
+        .boton {
+            display: inline-block;
+            background: #a9576d;
+            color: white;
+            padding: 13px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .boton:hover {
+            background: #873f55;
+            transform: translateY(-2px);
+        }
+
+        /* FRASE */
+
+        .frase {
+            text-align: center;
+            padding: 45px 20px;
+            background: white;
+        }
+
+        .frase p {
+            font-family: Georgia, serif;
+            font-style: italic;
+            font-size: 25px;
+            color: #895262;
+        }
+
+        /* CATÁLOGO */
+
+        .catalogo {
+            padding: 70px 8%;
+        }
+
+        .titulo {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .titulo h2 {
+            font-family: Georgia, serif;
+            font-size: 38px;
+            color: #793f50;
+            margin-bottom: 10px;
+        }
+
+        .titulo p {
+            color: #80676c;
+        }
+
+        .productos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 28px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .producto {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid #f0dddd;
+            box-shadow: 0 7px 25px rgba(100, 50, 60, 0.07);
+            transition: 0.3s;
+        }
+
+        .producto:hover {
+            transform: translateY(-5px);
+        }
+
+        .producto img {
+            width: 100%;
+            height: 280px;
+            object-fit: contain;
+            display: block;
+        }
+
+        .producto-info {
+            padding: 20px;
+        }
+
+        .producto h3 {
+            font-family: Georgia, serif;
+            font-size: 22px;
+            color: #793f50;
+            margin-bottom: 8px;
+        }
+
+        .producto p {
+            color: #80676c;
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .precio {
+            font-size: 21px;
+            font-weight: bold;
+            color: #b15870;
+            margin-bottom: 15px;
+        }
+
+        .comprar {
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            background: #f7e1e5;
+            color: #954d62;
+            padding: 11px;
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+
+        .comprar:hover {
+            background: #a9576d;
+            color: white;
+        }
+
+        /* SOBRE NOSOTROS */
+
+        .sobre {
+            background: #f8e7e8;
+            padding: 65px 20px;
+            text-align: center;
+        }
+
+        .sobre-contenido {
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .sobre h2 {
+            font-family: Georgia, serif;
+            color: #793f50;
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        .sobre p {
+            line-height: 1.8;
+            color: #725b60;
+        }
+
+        /* CONTACTO */
+
+        .contacto {
+            padding: 70px 20px;
+            text-align: center;
+        }
+
+        .contacto h2 {
+            font-family: Georgia, serif;
+            font-size: 35px;
+            color: #793f50;
+            margin-bottom: 15px;
+        }
+
+        .contacto p {
+            color: #765d62;
+            margin-bottom: 25px;
+        }
+
+        /* PIE DE PÁGINA */
+
+        footer {
+            background: #493238;
+            color: #f8e9eb;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        footer p {
+            font-size: 14px;
+            margin: 5px;
+        }
+
+        /* CELULAR */
+
+        @media (max-width: 600px) {
+
+            header {
+                padding: 15px 5%;
+            }
+
+            .logo {
+                font-size: 20px;
+            }
+
+            nav a {
+                margin-left: 10px;
+                font-size: 12px;
+            }
+
+            .inicio {
+                min-height: 450px;
+            }
+
+            .inicio h1 {
+                font-size: 42px;
+            }
+
+            .inicio p {
+                font-size: 15px;
+            }
+
+            .catalogo {
+                padding: 55px 5%;
+            }
+
+            .titulo h2 {
+                font-size: 32px;
+            }
+
+            .producto img {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- MENÚ -->
+
+    <header>
+
+        <div class="logo">
+            Pétalos & Detalles
+        </div>
+
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#catalogo">Catálogo</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+
+    </header>
+
+
+    <!-- INICIO -->
+
+    <section class="inicio" id="inicio">
+
+        <div class="inicio-contenido">
+
+            <h1>
+                Flores que <span>perduran</span>
+            </h1>
+
+            <p>
+                Hermosas flores hechas a mano con limpiapipas y
+                listón, creadas para regalar un detalle especial
+                a las personas que quieres.
+            </p>
+
+            <a href="#catalogo" class="boton">
+                Ver flores
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- FRASE -->
+
+    <section class="frase">
+
+        <p>
+            “Regala una flor y deja un recuerdo que dure para siempre.”
+        </p>
+
+    </section>
+
+
+    <!-- CATÁLOGO -->
+
+    <section class="catalogo" id="catalogo">
+
+        <div class="titulo">
+
+            <h2>Nuestro catálogo</h2>
+
+            <p>
+                Elige tu flor favorita ♡
+            </p>
+
+        </div>
+
+
+        <div class="productos">
+
+
+           <!-- PRODUCTO 1 -->
+
+            <div class="producto">
+
+                <img
+                    src="40e92d2c0b8c0d0cb63f6dbcf1101c14.jpg"
+                    alt="Flores hechas a mano"
+                >
+
+                <div class="producto-info">
+
+                    <h3>Un detallito  </h3>
+
+                    <p>
+                      Pequeña maceta con margaritas, grandiosa para regalarle un detallito a esa personita especial 
+                    </p>
+
+                    <div class="precio">
+                        $5.50
+                    </div>
+
+                    <a
+                        href="https://wa.me/593994850612"
+                        class="comprar"
+                    >
+                        Pedir
+                    </a>
+
+                </div>
+
+            </div>
+
+
+           <!-- PRODUCTO 1 -->
+
+            <div class="producto">
+
+                <img
+                    src="4ff4bd4ddd6673578dd080969be55ae0.jpg"
+                    alt="Flores hechas a mano"
+                >
+
+                <div class="producto-info">
+
+                    <h3>Un detallito</h3>
+
+                    <p>
+                            Pequeña maceta con tulipanes, grandiosa para regalarle un detallito a esa personita especial 
+                    </p>
+
+                    <div class="precio">
+                        $5.50
+                    </div>
+
+                    <a
+                        href="https://wa.me/593994850612"
+                        class="comprar"
+                    >
+                        Pedir
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+
+         
+            
+             <!-- PRODUCTO 1 -->
+
+            <div class="producto">
+
+                <img
+                    src="6d994263180fbf34aadb66c8436a09d4.jpg"
+                    alt="Flores hechas a mano"
+                >
+
+                <div class="producto-info">
+
+                    <h3>Un detallito</h3>
+
+                    <p>
+                            Pequeña maceta con rosas, grandiosa para regalarle un detallito a esa personita especial 
+                    </p>
+
+                    <div class="precio">
+                        $5.50
+                    </div>
+
+                    <a
+                        href="https://wa.me/593994850612"
+                        class="comprar"
+                    >
+                        Pedir
+                    </a>
+
+                </div>
+
+            </div>
+
+ <!-- PRODUCTO 1 -->
+
+            <div class="producto">
+
+                <img
+                    src="b20e908fd6af780413dc21211eaa6a16.jpg"
+                    alt="Flores hechas a mano"
+                >
+
+                <div class="producto-info">
+
+                    <h3>Un detallito</h3>
+
+                    <p>
+                            Pequeña maceta con girasoles, grandiosa para regalarle un detallito a esa personita especial 
+                    </p>
+
+                    <div class="precio">
+                        $5.50
+                    </div>
+
+                    <a
+                        href="https://wa.me/593994850612"
+                        class="comprar"
+                    >
+                        Pedir
+                    </a>
+
+                </div>
+
+            </div>
+            
+             <!-- PRODUCTO 1 -->
+
+            <div class="producto">
+
+                <img
+                    src="fc4336962c055351f025ae8d96c67318.jpg"
+                    alt="Flores hechas a mano"
+                >
+
+                <div class="producto-info">
+
+                    <h3>Un detallito</h3>
+
+                    <p>
+                            Pequeña maceta con un lirio, grandiosa para regalarle un detallito a esa personita especial 
+                    </p>
+
+                    <div class="precio">
+                        $4.50
+                    </div>
+
+                    <a
+                        href="https://wa.me/593994850612"
+                        class="comprar"
+                    >
+                        Pedir
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+   <!-- PRODUCTO 1 -->
+           
+           
+
+            <div class="producto">
+
+                <img
+                    src="file_000000005fb081f58ac8b116ebabe1ea.png"
+                    alt="Flores hechas a mano"
+                >
+
+                <div class="producto-info">
+
+                    <h3>Un poquito de amor  </h3>
+
+                    <p>
+                        Hermosas flores hechas a mano,
+                        perfectos para regalar a quien mas aprecias
+                    </p>
+
+                    <div class="precio">
+                        $12.00
+                    </div>
+
+                    <a
+                        href="https://wa.me/593994850612"
+                        class="comprar"
+                    >
+                        Pedir
+                    </a>
+
+                </div>
+
+            </div>
+            
+
+           <!-- PRODUCTO 1 -->
+
+            <div class="producto">
+
+                <img
+                    src="file_00000000c83881f59ec9c54e425d4183.png"
+                    alt="Rosas hechas a mano"
+                >
+
+                <div class="producto-info">
+
+                    <h3>Amor eterno </h3>
+
+                    <p>
+                        Hermosas rosas hechas a mano,
+                        perfectos para regalar a quien mas aprecias
+                    </p>
+
+                    <div class="precio">
+                        $25.00
+                    </div>
+
+                    <a
+                        href="https://wa.me/593994850612"
+                        class="comprar"
+                    >
+                        Pedir
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PRODUCTO 2 -->
+
+            <div class="producto">
+
+                <img
+                    src="60fca1d52f2b3a27e65faf9abd3d8029 (1).jpg"
+                    alt="Rosas hechas a mano"
+                >
+
+                <div class="producto-info">
+
+                    <h3>Rosa de ensueño</h3>
+                    <p>
+         Ramo de de 7 rosas eternas que podras guardar como un bello recuerdo        
+                    </p>
+
+                    <div class="precio">
+                        $8.50
+                    </div>
+
+                    <a
+                        href="https://wa.me/593994850612"
+                        class="comprar"
+                    >
+                        Pedir
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCTO 3 -->
+
+            <div class="producto">
+
+                <img
+                    src="37e46ddd5c7cb1537040d2dbf9fa5291.jpg"
+                    alt="rosas hechas a mano"
+                >
+
+                <div class="producto-info">
+
+                    <h3>Rosa de ensueño</h3>
+
+                    <p>
+                  Ramo de de 12 rosas eternas que podras guardar como un bello recuerdo
+                    </p>
+
+                    <div class="precio">
+                        $14.50
+                    </div>
+
+                    <a
+                        href="https://wa.me/593994850612"
+                        class="comprar"
+                    >
+                        Pedir
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCTO 4 -->
+
+            <div class="producto">
+
+                <img
+                    src="71fb7d07b6c5e001132e9a5f6cec6163 (1).jpg"
+                    alt="Rosas hechas a mano"
+                >
+
+                <div class="producto-info">
+
+                    <h3>Rosa de ensueño</h3>
+
+                    <p>
+                            Ramo de de 16 rosas eternas que podras guardar como un bello recuerdo
+                    </p>
+
+                    <div class="precio">
+                        $19.50
+                    </div>
+
+                    <a
+                        href="https://wa.me/593994850612"
+                        class="comprar"
+                    >
+                        Pedir
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SOBRE NOSOTROS -->
+
+    <section class="sobre">
+
+        <div class="sobre-contenido">
+
+            <h2>Hecho con cariño</h2>
+
+            <p>
+                Cada flor es elaborada cuidadosamente a mano,
+                utilizando limpiapipas y listón. Nuestro objetivo
+                es crear detalles bonitos y especiales que puedas
+                regalar a tu pareja, familia, amigos o a esa
+                persona que quieres sorprender.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACTO -->
+
+    <section class="contacto" id="contacto">
+
+        <h2>¿Quieres hacer un pedido?</h2>
+
+        <p>
+            Escríbenos y cuéntanos qué flor te gustaría regalar.
+        </p>
+
+        <a
+            href="https://wa.me/593994850612"
+            class="boton"
+        >
+            Contactar por WhatsApp
+        </a>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            Pétalos & Detalles ♡
+        </p>
+
+        <p>
+            Flores hechas a mano
+        </p>
+
+        <p>
+            © 2026 Todos los derechos reservados
+        </p>
+
+    </footer>
+
+</body>
+</html>
